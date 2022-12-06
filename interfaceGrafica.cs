@@ -211,19 +211,38 @@ namespace objetosUdemy
                 Console.WriteLine("Digite C para cadastrar um  novo usuario.");
                 Console.WriteLine("Digite B para buscar um usuario pelo numero do documento.");
                 Console.WriteLine("Digite R para remover um usuario pelo numero do documento");
+                Console.WriteLine("Digite H para mostrar a data e a hora");
                 Console.WriteLine("Ou Digite S para sair");
                 temp = Console.ReadKey(true).KeyChar.ToString().ToLower();
                 switch (temp)
                 {
                     case "c":
+                        if (baseDeDados.BaseDisponivel() == false)
+                        {
+                            MostraMensagem("Base indisponivel");
+                            break;
+                        }
                         CadastraUsuario();
-
+                        
                         break;
                     case "b":
+                        if (baseDeDados.BaseDisponivel() == false)
+                        {
+                            MostraMensagem("Base indisponivel");
+                            break;
+                        }
                         BuscaUsuario();
                         break;
                     case "r":
+                        if (baseDeDados.BaseDisponivel() == false)
+                        {
+                            MostraMensagem("Base indisponivel");
+                            break;
+                        }
                         RemoveUsuario();
+                        break;
+                    case "h":
+                        MostraMensagem(DateTime.Now.ToString());
                         break;
                     case "s":
                         Sair();
